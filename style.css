@@ -186,7 +186,8 @@ body {
   outline: none;
   font-family: monospace;
   font-size: 1rem;
-  caret-color: transparent;
+  caret-color: #0ff;
+  animation: blink-cursor 1s step-start infinite;
 }
 
 /* Typewriter effect for placeholder text */
@@ -319,5 +320,10 @@ body {
   100% {
     transform: translateX(0%);
     opacity: 1;
+  }
+}
+@keyframes blink-cursor {
+  50% {
+    caret-color: transparent;
   }
 }
