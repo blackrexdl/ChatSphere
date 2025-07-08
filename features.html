@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChatSphere - File Upload</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-ui">
+
+  <!-- 🌌 Developer-Themed Chat Background -->
+  <div class="geez-vibes-bg">
+    <div class="chat-container">
+      
+      <!-- 🧠 Chat Header -->
+      <div class="chat-header">
+        <h2>📁 Upload Files to ChatSphere</h2>
+      </div>
+
+      <!-- 💬 Chat Display Area -->
+      <div class="chat-window">
+        <div class="chat-placeholder">
+          <p>Drop your <strong>PDF, DOCX</strong> files here or use the + icon below to upload.</p>
+        </div>
+      </div>
+
+      <!-- 🧷 Message/Upload Input -->
+      <div class="chat-input-bar">
+        <label for="file-upload" class="upload-icon">+</label>
+        <input type="file" id="file-upload" class="hidden-file" accept=".pdf,.docx" />
+        <input type="text" placeholder="Ask something about your uploaded file..." disabled />
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
