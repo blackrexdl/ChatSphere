@@ -113,3 +113,95 @@ body {
     padding: 0.6rem 1.2rem;
   }
 }
+/* ========== Developer Chat UI Page ========== */
+.dark-ui {
+  background: #0f0f0f;
+  color: #fff;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.geez-vibes-bg {
+  background: radial-gradient(circle at top left, #1f1f1f, #0f0f0f);
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  padding: 1rem;
+  box-shadow: 0 0 20px #0ff;
+}
+
+.chat-header h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #0ff;
+}
+
+.chat-window {
+  background: #181818;
+  height: 300px;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-y: auto;
+  color: #aaa;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-placeholder p {
+  font-size: 1rem;
+  color: #888;
+}
+
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #111;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #333;
+}
+
+.chat-input-bar input[type='text'] {
+  flex: 1;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+}
+
+.upload-icon {
+  background: #00ffff;
+  color: #000;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.upload-icon:hover {
+  background: #0ff;
+}
+
+.hidden-file {
+  display: none;
+}
