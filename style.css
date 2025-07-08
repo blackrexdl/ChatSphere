@@ -184,6 +184,27 @@ body {
   border: none;
   color: #fff;
   outline: none;
+  font-family: monospace;
+  font-size: 1rem;
+  caret-color: transparent;
+}
+
+/* Typewriter effect for placeholder text */
+.chat-input-bar input[type='text']::placeholder {
+  overflow: hidden;
+  white-space: nowrap;
+  /* animation: typing 3s steps(40, end) forwards; */
+  display: inline-block;
+  color: #aaa;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .upload-icon {
@@ -289,4 +310,14 @@ body {
 .hidden-back-btn:hover {
   background-color: rgba(0, 255, 255, 0.25);
   box-shadow: 0 0 14px #0ff;
+}
+@keyframes slideFadeIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
 }
