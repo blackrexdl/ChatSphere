@@ -258,19 +258,33 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
-  font-size: 1.4rem;
+  font-size: 0.95rem;
   background-color: rgba(0, 255, 255, 0.1);
   color: #0ff;
-  padding: 0.4rem 0.6rem;
-  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
   text-decoration: none;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 6px #0ff;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 8px #0ff;
   transition: all 0.3s ease;
   z-index: 2;
+  font-weight: 600;
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 6px #0ff;
+  }
+  50% {
+    box-shadow: 0 0 14px #0ff;
+  }
+  100% {
+    box-shadow: 0 0 6px #0ff;
+  }
 }
 
 .hidden-back-btn:hover {
   background-color: rgba(0, 255, 255, 0.25);
-  box-shadow: 0 0 12px #0ff;
+  box-shadow: 0 0 14px #0ff;
 }
