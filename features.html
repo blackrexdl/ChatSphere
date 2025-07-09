@@ -28,6 +28,7 @@
       <!-- 🧷 Message/Upload Input -->
       <div class="chat-input-bar">
         <label for="file-upload" class="upload-icon">+</label>
+        <span id="remove-file" class="remove-file" title="Remove File" style="display: none;">❌</span>
         <input type="file" id="file-upload" class="hidden-file" accept=".pdf,.docx" />
         <input type="text" placeholder="Ask something about your uploaded file..." />
       </div>
@@ -37,7 +38,7 @@
 
 <script>
   const input = document.querySelector(".chat-input-bar input[type='text']");
-  const placeholder = "Ask something about your uploaded file...";
+  const placeholder = "Upload you file here ...";
   let i = 0;
 
   function typeWriter() {
@@ -49,6 +50,78 @@
   }
 
   window.onload = typeWriter;
+</script>
+
+<script>
+  const fileInput = document.getElementById("file-upload");
+  const removeBtn = document.getElementById("remove-file");
+
+  fileInput.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    const iconLabel = document.querySelector(".upload-icon");
+
+    if (file) {
+      const maxSizeMB = 50;
+      const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+
+      if (file.size > maxSizeMB * 1024 * 1024) {
+        alert("❌ File too large. Please upload a file smaller than 50MB.");
+        fileInput.value = "";
+        return;
+      }
+
+      if (!allowedTypes.includes(file.type)) {
+        alert("❌ Invalid file type. Only PDF or DOCX files are allowed.");
+        fileInput.value = "";
+        return;
+      }
+
+      iconLabel.textContent = `📄 ${file.name}`;
+      iconLabel.classList.add("file-selected");
+      removeBtn.style.display = "inline";
+    } else {
+      iconLabel.textContent = "+";
+      iconLabel.classList.remove("file-selected");
+      removeBtn.style.display = "none";
+    }
+  });
+
+  removeBtn.addEventListener("click", () => {
+    fileInput.value = "";
+    document.querySelector(".upload-icon").textContent = "+";
+    document.querySelector(".upload-icon").classList.remove("file-selected");
+    removeBtn.style.display = "none";
+  });
+</script>
+
+<script>
+  const chatWindow = document.querySelector('.chat-window');
+  const messageInput = document.querySelector(".chat-input-bar input[type='text']");
+
+  messageInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter" && messageInput.value.trim() !== "") {
+      const userMessage = messageInput.value.trim();
+      addMessage("user", userMessage);
+      messageInput.value = "";
+
+      // Simulate chatbot reply
+      setTimeout(() => {
+        if (/file|docx|pdf/i.test(userMessage)) {
+          addMessage("bot", "Sure! I can help you with that file.");
+        } else {
+          addMessage("bot", "I can assist only with PDF or DOCX-based file queries.");
+        }
+      }, 500);
+    }
+  });
+
+  function addMessage(sender, text) {
+    const msg = document.createElement("div");
+    msg.className = `chat-bubble ${sender}`;
+    msg.textContent = text;
+    chatWindow.appendChild(msg);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+  }
 </script>
 
 </body>
