@@ -37,11 +37,6 @@ A futuristic and professional **chatbot landing page UI** – developed as part 
 
 ## 🖼️ Screenshots
 
-### 🏠 Home Page
-![Home Page](screenshots/home.png)
-
-### 💬 Chat Interface
-![Chat Page](screenshots/chat.png)
 
 > _Make sure to clone the repo and run it using Live Server for full effect!_
 
